@@ -7,7 +7,7 @@ Use `kingoftheseas56/Preflight-Architect` as the canonical, repository-native de
 ## Active Work Arcs
 
 - Repository-native Preflight Architect definition is COMPLETE (all manifest files published; see Published Artifacts).
-- Agent 0 owns Local Media Launch execution, including the Slice 3C bare-libmpv probe, reconstruction, adoption, and runtime verification.
+- Agent 0 owns Local Media Launch execution. The Slice 3C bare-libmpv admission policy has passed its standalone compiled-and-run gate; adapter reconstruction, adoption, and live-window verification remain with Agent 0.
 - Preserve Slice 1 and corrected Slice 2 r2 for Colosseum adoption.
 - Keep Slice 3B comics design-first until archive ownership and identity are resolved.
 - Design the narrow atomic reference-bundle publishing bridge.
@@ -49,6 +49,8 @@ The Brotherhood execution side uses its own status vocabulary. Correspondence, s
 - Local Media Launch Slice 1 owns shared inspection, classification, handler, routing, descriptor, and typed-error contracts.
 - Slice 2 is a separate device-local continuity and identity store and must not reuse global `ProgressStore`.
 - Slice 3C is approved under A1+B1: Player 1/mpv/OpenGL default boot, typed Player 2 failure, cancellable bare-libmpv admission before session creation, isolated external-local mode, and fingerprinting only after visual playback-start evidence.
+- Slice 3C admission requires video enabled through `vo=null` and positive decoded-frame evidence (`dwidth > 0`). `FILE_LOADED` is diagnostic only. The default timeout is 3000 ms and must not be reduced from local-disk measurements without slow-source evidence.
+- Admission proves openable plus one decoded frame, not whole-file integrity; corruption after the first valid frame is a later playback failure and must preserve the session.
 
 ## Repository and Branch State
 
@@ -74,6 +76,7 @@ The Brotherhood execution side uses its own status vocabulary. Correspondence, s
 - `specifications/2026-08-06-colosseum-local-media-launch-specification.md`
 - `roadmaps/2026-08-06-colosseum-local-media-launch-implementation-roadmap.md`
 - Relevant Slice 1, Slice 2 r2, and Slice 3C handoffs remain authoritative at their published repository paths.
+- `handoffs/2026-08-06-colosseum-local-media-launch-slice-3c-code-01-libmpv-admission-probe-r3.md` — commit `24e00b6625a3cd4760db23143b69c40511a28fd6`; file SHA `af6c61e952f6807f01d3a0a52f5fdd195fc8846d` (test-reported fixture outcomes, error taxonomy, timeout caveat, and permanent regression guards).
 
 ## Rejected Approaches and Negative Knowledge
 
@@ -97,13 +100,20 @@ The Brotherhood execution side uses its own status vocabulary. Correspondence, s
 - **Settling evidence class:** full-lifecycle QML runtime trace, then user verification.
 - **Lessons institutionalized:** the ISSUE INTAKE skill (inbound-claim classification, alternative-explanation tripwire) and the OUTCOME RECORD gate — both published in commit `463c8af`. The response's honest status labels ("Hypothesis", "Not verified") worked as designed and prevented a wrong fix from being trusted; the intake gap is what cost a cycle. The recommended inactive-strip `active` gate remains a valid, separate latent-hardening follow-up (not the resume bug).
 
+### Outcome record: issue #1 Slice 3C admission probe (2026-08-06)
+
+- **Falsified:** Code Part 01 r1's baseline disabled both video and audio and treated `FILE_LOADED` as sufficient or potentially sufficient admission evidence. In the live harness this universally rejected valid video under P0, while `FILE_LOADED` alone admitted truncated and encrypted sources.
+- **Confirmed actual policy (compiled-and-run fixture matrix):** keep video enabled through `vo=null`, disable audio/config/scripts, and admit only after observed `dwidth > 0`. Code Part 01 r2 reproduced the expected fixture discrimination, event ordering, cancellation, timeout, and stale-generation behavior against the installed libmpv.
+- **Settling evidence class:** standalone MSVC/libmpv harness with deterministic fixtures, event traces, latency measurements, and regression guards, reported by Agent 0 on issue #1.
+- **Operational correction:** error values `-16`, `-17`, and `-13` are recorded as observed diagnostics rather than universal product semantics; use a 3000 ms default because removable, network, sleeping-disk, and large-4K sources were not measured. Admission guarantees one decoded frame, not whole-file integrity.
+- **Durable pointer:** `handoffs/2026-08-06-colosseum-local-media-launch-slice-3c-code-01-libmpv-admission-probe-r3.md`.
+
 ## Open Questions
 
 - What repository-wide licensing terms correctly preserve the existing MIT and CC BY-NC adaptation notices?
-- Does the Slice 3C baseline probe discriminate every required corrupt, encrypted, and unsupported-codec fixture?
-- Is the null-output first-frame strengthening branch required?
-- What timeout follows measured probe latency?
+- Does the final adopted harness include a distinct unsupported-codec fixture beyond unrecognized-container garbage?
 - How should Slice 3B reconcile archive copy/move behavior with the "never copied or imported" requirement?
+- Do removable, network-mounted, sleeping-disk, or large-4K sources require source-class timeout or retry behavior in the later recovery slice?
 
 ## Risks and Constraints
 
@@ -115,8 +125,8 @@ The Brotherhood execution side uses its own status vocabulary. Correspondence, s
 
 ## Exact Next Action
 
-From a fresh repository-connected session: verify every pointer in `AGENTS.md`, `README.md`, and the operating contract resolves (all six manifest files are now present), and confirm the front-end Custom GPT instructions defer to the repository definition. Agent 0 independently continues the approved Colosseum Slice 3C probe work.
+Agent 0 reconstructs and adopts the Slice 3C adapter in Colosseum, then reports the live-window gates for Player 1 session creation, external-local progress isolation, subtitle-provider silence, and source-unavailable session preservation. Preflight Architect should evaluate any returned divergence through RECEIVING CHALLENGE and record further outcomes without rewriting immutable handoffs.
 
 ## Last Updated
 
-2026-08-06T22:54:00+05:30
+2026-08-06T23:11:00+05:30
