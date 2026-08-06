@@ -28,6 +28,9 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 - Slice 2 uses a stable opaque UUID. Paths are locators, fingerprints are evidence rather than automatic identity, and copy/changed-content relationships are explicit.
 - Clearing recents preserves identity and continuity metadata. Full forget removes local metadata and caller-selected derived caches but never source media.
 - The Slice 2 candidate has a standalone adapter boundary because Slice 1 is not adopted. It must reconcile with the actually adopted Slice 1 interface.
+- Slice 2 r2 case-folds normalized locator keys on Windows and separates intrinsic record validation from referential validation.
+- Slice 3C cannot honestly produce a compliant Player 1 adapter until boot behavior and pre-session libmpv admission are decided.
+- Recommended Slice 3C decisions are A1: Player 1-only support with typed failure in Player 2 mode, and B1: cancellable non-visual libmpv admission before session creation.
 
 ## Repository State
 
@@ -87,6 +90,18 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
   - file SHA: `64ae966396b4c710fe88c84a0e5f85991d14aef9`
 - Status: standalone, repository-grounded continuity-store candidate with versioned JSON, atomic `QSaveFile` persistence, hermetic harness, and build registration. Uncompiled, untested, unexecuted, unadopted, and unverified.
 
+
+### Slice 2 Corrected r2 and Slice 3C Stop-Condition Handoff
+
+- `handoffs/2026-08-06-colosseum-local-media-launch-slice-2-corrected-r2-reference-implementation-bundle.md`
+  - commit: `ba6446fa35d729b01bb514581e81d469e341e16e`
+  - file SHA: `fbfe556b7949e4fe36982e3f03a8638449bdc47a`
+  - status: reviewed correction bundle; uncompiled, untested, unadopted, and runtime-unverified.
+- `handoffs/2026-08-06-colosseum-local-media-launch-slice-3c-player1-libmpv-conflict-and-impact-handoff.md`
+  - commit: `ed00c9fc654d05fc1ce0aa1ecf40044570fa78f7`
+  - file SHA: `78fff9893b9da79a2cbcc5d5f83331d209cd78dd`
+  - status: blocked stop-condition handoff; requires Player 2 boot-policy and decode-admission decisions.
+
 ## Rejected Approaches and Negative Knowledge
 
 - Do not embed large canonical implementations inside roadmaps.
@@ -107,7 +122,10 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 - The actual Reader 2 state migration or aliasing strategy after relocation.
 - Whether local-media persistence needs a worker-thread wrapper before integration.
 - The deterministic write-failure test seam.
-- Concrete BookReader 2, ComicReader 2, and Player 1 integration boundaries for Slice 3.
+- Concrete BookReader 2 and ComicReader 2 integration boundaries for Slice 3.
+- Slice 3C decision A: reject in Player 2 boot, restart into Player 1, or redesign for backend coexistence.
+- Slice 3C decision B: add pre-session non-visual libmpv admission or relax the no-session-on-decode-failure criterion.
+- Whether installed MpvQt exposes a cancellable non-visual admission/probe API.
 
 ## Risks and Constraints
 
@@ -121,8 +139,8 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 
 ## Exact Next Action
 
-An execution agent must re-read current Colosseum, adopt or adapt Slice 1 in an isolated branch/worktree, compile and run its harness and shell/session regressions, and report the adopted commit and divergences. Then reconcile the Slice 2 standalone store against that adopted interface, apply it in isolation, compile and run its harness and CTest entry, run `ProgressStore`/Reader 2/comic-ledger regressions, verify no source-media mutation and no pollution of online recents, and report the adopted commit. Do not begin Slice 3 reader/player integrations until these reports exist.
+Obtain product/architecture decisions for Slice 3C A and B. Recommended default: A1+B1. In parallel, the execution agent must adopt/reconcile Slice 1 and corrected Slice 2 r2 in an isolated branch, compile and run their harnesses/regressions, and report adopted commits and divergences. Do not implement Slice 3C until the decisions and MpvQt probe evidence exist.
 
 ## Last Updated
 
-2026-08-06T20:52:00+05:30
+2026-08-06T21:28:00+05:30
