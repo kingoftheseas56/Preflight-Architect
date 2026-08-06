@@ -1,4 +1,4 @@
-# Colosseum Code Encyclopedia Pilot — Generator Contract r1
+# Colosseum Code Encyclopedia Pilot -- Generator Contract r1
 
 ## Status
 
@@ -96,7 +96,7 @@ python scripts/generate_code_encyclopedia.py \
 
 - state is absent or missing a manifest entry;
 - generated Markdown differs;
-- state encoding difers or -- pilot remains missing;
+- state encoding differs;
 - any entry remains `DRIFTED`;
 - parsing, hashing, or integrity validation fails.
 
@@ -110,11 +110,11 @@ The accepted-state boundary is therefore required, not optional ceremony:
 
 ```text
 current source edit
-→ generate/check
-→ DRIFTED, old accepted description retained as a warning
-→ human/agent reads current source and repairs comment if needed
-→ explicit accept
-→ current hash/comment become accepted
+-> generate/check
+-> DRIFTED, old accepted description retained as a warning
+-> human/agent reads current source and repairs comment if needed
+-> explicit accept
+-> current hash/comment become accepted
 ```
 
 Agent 0 must ratify this interpretation before adoption.
@@ -210,7 +210,7 @@ When the first logical line starts with `/*`:
 - preserve the literal block;
 - fail if no closing delimiter exists.
 
-### “Verbatim” definition
+### "Verbatim" definition
 
 The generator does not remove comment markers, wrap text, correct spelling, rewrite terminology, or synthesize a description. It emits the harvested block in a fenced `text` block. The source file remains the authoritative location for edits.
 
@@ -259,9 +259,9 @@ The digest is an accidental/manual-edit guard, not a cryptographic trust boundar
 ## Generated Markdown Schema
 
 ```markdown
-# Colosseum Code Encyclopedia — Generated Source Index
+# Colosseum Code Encyclopedia -- Generated Source Index
 
-> **GENERATED FILE — DO NOT EDIT.** Edit source comments, then run the generator.
+> **GENERATED FILE -- DO NOT EDIT.** Edit source comments, then run the generator.
 > Acceptance state: `docs/code-map/generated/.comics-pilot-state.json`
 
 ## Summary
@@ -385,7 +385,7 @@ Repository evidence outranks the candidate if adoption reveals a conflict.
 | Fixture | Input shape | Expected |
 |---|---|---|
 | F01 | leading `//` block | literal documented block |
-| F02 | leading `/* .. */` | literal documented block |
+| F02 | leading `/* ... */` | literal documented block |
 | F03 | blank lines then `//` | documented |
 | F04 | `.pragma library`, then `//` in `.js` | documented |
 | F05 | `#pragma once`, then comment | `UNDOCUMENTED` |
@@ -408,7 +408,7 @@ Repository evidence outranks the candidate if adoption reveals a conflict.
 | no state | generate | all manifest entries initially accepted |
 | current accepted entry | generate | `CURRENT`, no state change |
 | source blob changed | generate | `DRIFTED`, accepted comment/hash retained |
-| drifted entry | `--accept PATH``| current comment/hash accepted |
+| drifted entry | `--accept PATH` | current comment/hash accepted |
 | several drifted | `--accept-all-drifted` | all current |
 | source comment removed and accepted | generate | `UNDOCUMENTED` |
 | source changed from documented to no comment without acceptance | generate | `DRIFTED`, old accepted comment remains visible |
@@ -444,4 +444,4 @@ Stop implementation and return evidence when:
 
 ## First Executable Action
 
-Agent 0 creates parser fixtures F01b��F16 in a temporary or repository test harness and ports the reference candidate only after ratifying the acceptance operation.
+Agent 0 creates parser fixtures F01-F16 in a temporary or repository test harness and ports the reference candidate only after ratifying the acceptance operation.
