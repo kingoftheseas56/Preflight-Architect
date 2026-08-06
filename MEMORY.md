@@ -5,7 +5,7 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 
 ## Active Work Arcs
 - Create the smallest implementation plan for the Theatre-equivalent Biblio Library tab, with focused Qt/Qt Quick tests and one compact isolated Lanista scenario.
-- Complete Slice 0 of the approved Local Media Launch roadmap: publish the repository contract map and baseline evidence before any production or reference-code changes.
+- Run and record the Local Media Launch Slice 0 execution baselines against `master@bb8eecb40eb8a50b7ded62f79035c555972c3fef`, reconcile repository drift and failed assumptions, then generate the Slice 1 shared-contracts Reference Implementation Bundle.
 - Design and implement the narrow atomic `writePreflightReferenceBundle` bridge capability, then select one small approved Colosseum roadmap slice as the pilot.
 
 ## Durable Decisions
@@ -32,6 +32,11 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 - Observed Colosseum branch: `master`
 
 ## Published Artifacts
+- `research/2026-08-06-colosseum-local-media-launch-slice-0-implementation-prototype.md`
+  - commit: `91d5494d0fbf8100dfa1522843d52f954b1e8a5b`
+  - file SHA: `77d8ffbe82c511e1f12d7e397690ec648ca259cb`
+  - Colosseum basis: `master@bb8eecb40eb8a50b7ded62f79035c555972c3fef`
+  - status: repository-grounded Slice 0 prototype; static inspection complete; builds, tests, Lanista, and runtime validation pending.
 - `roadmaps/2026-08-06-colosseum-local-media-launch-implementation-roadmap.md`
   - commit: `6c8ad2e828ce267cd323bc23d51226a10ae496f0`
   - file SHA: `2c6f0550ce003ead80a585f7a629c8930940cf06`
@@ -77,7 +82,7 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 - User-visible completion requires current isolated Lanista evidence or an explicit blocker.
 
 ## Exact Next Action
-Complete and publish Local Media Launch Slice 0 as a repository contract-map/research artifact pinned to Colosseum `master` commit `879e1e93e2084659c74a228bb5792b23174236e2`. It must resolve taskbar lifecycle, `SessionStore` replacement/identity semantics, backend validation seams, Reader 2 path-keyed state, CBZ/CBR ingestion, Player 1 state/subtitle contracts, platform intake, existing tests, and baseline evidence. Do not generate the Slice 1 code bundle until this map is complete and the atomic Reference Implementation Bundle bridge is available.
+Run and record the Slice 0 baseline against Colosseum `master@bb8eecb40eb8a50b7ded62f79035c555972c3fef`, reconcile repository drift and failed assumptions, then implement the atomic Reference Implementation Bundle bridge and generate the Slice 1 shared resource, handler, routing, and error-contract bundle against the resulting exact commit.
 
 ## Last Updated
-2026-08-06T18:29:00+05:30
+2026-08-06T19:40:00+05:30
