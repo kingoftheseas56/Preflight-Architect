@@ -6,7 +6,7 @@ Use `kingoftheseas56/Preflight-Architect` as the canonical, repository-native de
 
 ## Active Work Arcs
 
-- Complete the repository-native Preflight Architect definition.
+- Repository-native Preflight Architect definition is COMPLETE (all manifest files published; see Published Artifacts).
 - Agent 0 owns Local Media Launch execution, including the Slice 3C bare-libmpv probe, reconstruction, adoption, and runtime verification.
 - Preserve Slice 1 and corrected Slice 2 r2 for Colosseum adoption.
 - Keep Slice 3B comics design-first until archive ownership and identity are resolved.
@@ -19,12 +19,26 @@ Use `kingoftheseas56/Preflight-Architect` as the canonical, repository-native de
 - This repository is the canonical definition and durable home of Preflight Architect.
 - Custom GPT instructions and other front ends are adapters, not the source of truth.
 - The portable definition requires an operating contract in addition to the four modular skill files.
-- `research/PREFLIGHT-ARCHITECT-OPERATING-CONTRACT.md` is the current authoritative startup contract.
-- Root `AGENTS.md` remains the preferred automatic-discovery entrypoint when arbitrary root writes are available.
+- `research/PREFLIGHT-ARCHITECT-OPERATING-CONTRACT.md` is the current authoritative startup contract; root `AGENTS.md` is the automatic-discovery entrypoint and defers to the contract on overlap.
 - Read-only GitHub access supports reasoning but not durable persistence.
 - Memory updates use optimistic concurrency.
 - Handoffs are immutable; revisions receive new filenames.
 - Do not store secrets or transcripts in memory.
+
+### Intake and outcome discipline (field-ratified 2026-08-06, from issue #2)
+
+- Inbound issues are a supported intake channel governed by the ISSUE INTAKE skill (`research/02-INVESTIGATION.md`): inbound claims are classified before any verdict (a requester's "confirmed" is Reported here; mutable-state claims carry Outdated risk), and a single-hypothesis-plus-fix-menu framing triggers an alternative-explanation pass against the raw symptom.
+- Falsified or superseded published verdicts flow back into this file via the OUTCOME RECORD gate (`research/04-QUALITY-GATES.md`); originals stay immutable, corrections are recorded here and (for consequential artifacts) in `decisions/`.
+- Issue responses publish under `research/` as `YYYY-MM-DD-issue-<N>-<topic>-response.md` with `artifact_class: issue-response`.
+
+### Status vocabulary mapping (Brotherhood interop)
+
+The Brotherhood execution side uses its own status vocabulary. Correspondence, so cross-system handoffs do not mistranslate:
+
+- Preflight **Execution-ready** ≈ Brotherhood "plan approved, ready to execute".
+- Preflight **Test-reported** = Brotherhood **Test-reported** (same meaning: green tests, no runtime replay).
+- Preflight **Verified** is WEAKER than Brotherhood **Runtime-validated**: Verified proves the precise claim inspected; Runtime-validated additionally requires the original user-visible symptom replayed in the running app (or human-witnessed confirmation).
+- Brotherhood **Bridge blocked** has no Preflight equivalent; treat it as "requires execution evidence" with the missing capability named.
 
 ### Colosseum execution boundary
 
@@ -42,20 +56,17 @@ Use `kingoftheseas56/Preflight-Architect` as the canonical, repository-native de
 - Default branch: `main`
 - Colosseum repository: `kingoftheseas56/Colosseum`
 - Observed Colosseum branch: `master`
-- Slice 3C pinned basis: `a40333dc1fc9823ceb9decd811deeaddE6ac4c2d` (case should be rechecked before execution)
+- Slice 3C pinned basis: `a40333dc1fc9823ceb9decd811deeadde6ac4c2d` (case verified via `git rev-parse` by the execution agent, 2026-08-06; the earlier uppercase-E transcription was a typo). Note: Colosseum master has since advanced (comic-reader resume fix `df003eb`).
 
 ## Published Artifacts
 
-### Repository-native agent definition
+### Repository-native agent definition (complete)
 
-- `research/01-AGENTIC-FOUNDATIONS.md`
-  - commit: `87f151c4dc773d12c69b7e22c65abde529ea0613`
-- `research/PREFLIGHT-ARCHITECT-OPERATING-CONTRACT.md`
-  - commit: `5a2137cb3900d1bc86e72f1bec09767f2c631b49`
-- `decisions/2026-08-06-repository-native-preflight-architect.md`
-  - commit: `5614cbac23e8f073cddf69ba6b55313c2c59472a`
-- `roadmaps/2026-08-06-repository-native-preflight-architect.md`
-  - commit: `47950fdb8984e8868e8b034bad75a01be5bbfb01`
+- `research/01-AGENTIC-FOUNDATIONS.md` — commit `87f151c4dc773d12c69b7e22c65abde529ea0613`
+- `research/PREFLIGHT-ARCHITECT-OPERATING-CONTRACT.md` — commit `5a2137cb3900d1bc86e72f1bec09767f2c631b49`
+- `decisions/2026-08-06-repository-native-preflight-architect.md` — commit `5614cbac23e8f073cddf69ba6b55313c2c59472a`
+- `roadmaps/2026-08-06-repository-native-preflight-architect.md` — commit `47950fdb8984e8868e8b034bad75a01be5bbfb01`
+- `AGENTS.md`, `README.md`, `governance/repository-memory.md`, `research/02-INVESTIGATION.md`, `research/03-DELIVERABLES.md`, `research/04-QUALITY-GATES.md` — commit `463c8af7d142968b4f5fb11e1b98bf2e8a300d24` (published by a write-capable execution agent 2026-08-06, amended per the issue-#2 field review: ISSUE INTAKE skill, OUTCOME RECORD gate, issue-response destination, contract-authority note)
 
 ### Existing governing Colosseum artifacts
 
@@ -79,38 +90,33 @@ Use `kingoftheseas56/Preflight-Architect` as the canonical, repository-native de
 - Do not begin Slice 3B implementation before resolving copy/move and identity conflicts.
 - Do not claim tests or runtime behavior without execution evidence.
 
+### Outcome record: issue #2 (comic reader resume, 2026-08-06)
+
+- **Falsified:** the advisory verdict in `research/2026-08-06-issue-2-comic-reader-resume-response.md` endorsed the briefing's inactive-long-strip `pageInView` mechanism as the leading explanation for the page-1 reset.
+- **Confirmed actual cause (runtime trace + eyes-on):** a state-identity ordering defect — both comic open paths set `openChapterId` (mounting the reader) BEFORE the baked identity (`gcdId`/`bakedReleases`), so resume read the transient `gc:` progress key while saves went to `gcd:<id>`, and the first presentation overwrote the real record with page 1. Fixed in Colosseum `df003eb`; the briefing's "record at page 2" claim was itself stale (the record had already degraded).
+- **Settling evidence class:** full-lifecycle QML runtime trace, then user verification.
+- **Lessons institutionalized:** the ISSUE INTAKE skill (inbound-claim classification, alternative-explanation tripwire) and the OUTCOME RECORD gate — both published in commit `463c8af`. The response's honest status labels ("Hypothesis", "Not verified") worked as designed and prevented a wrong fix from being trusted; the intake gap is what cost a cycle. The recommended inactive-strip `active` gate remains a valid, separate latent-hardening follow-up (not the resume bug).
+
 ## Open Questions
 
-- Can the three remaining exact knowledge files be published through a connector path that accepts large Base64 payloads?
-- When can root `AGENTS.md` and `README.md` be created?
 - What repository-wide licensing terms correctly preserve the existing MIT and CC BY-NC adaptation notices?
 - Does the Slice 3C baseline probe discriminate every required corrupt, encrypted, and unsupported-codec fixture?
 - Is the null-output first-frame strengthening branch required?
 - What timeout follows measured probe latency?
-- How should Slice 3B reconcile archive copy/move behavior with the “never copied or imported” requirement?
+- How should Slice 3B reconcile archive copy/move behavior with the "never copied or imported" requirement?
 
 ## Risks and Constraints
 
-- `research/02-INVESTIGATION.md`, `research/03-DELIVERABLES.md`, and `research/04-QUALITY-GATES.md` are not yet published; the connector rejected the first large-file write as invalid Base64.
-- The current connector cannot create arbitrary root files.
-- The operating contract currently points to three not-yet-present skill files; fresh agents must use the contract plus available artifacts until those files are added.
-- Root and research-path operating contracts must not diverge after promotion.
+- Root and research-path operating statements must not diverge; `AGENTS.md` explicitly defers to the operating contract on overlap.
 - Licensing must not misrepresent third-party adapted material.
 - Current repository evidence outranks candidate code and remembered state.
 - No status claim may exceed supplied compile, test, and runtime evidence.
+- Custom GPT front-end instructions may predate the published `AGENTS.md`; on conflict, the repository definition wins and the front end should be updated.
 
 ## Exact Next Action
 
-Use a write-capable GitHub execution agent or a connector path that reliably accepts large files to:
-
-1. add exact copies of `02-INVESTIGATION.md`, `03-DELIVERABLES.md`, and `04-QUALITY-GATES.md`;
-2. add root `AGENTS.md` from `research/PREFLIGHT-ARCHITECT-OPERATING-CONTRACT.md`;
-3. add a concise root `README.md`;
-4. publish the repository-memory protocol;
-5. verify every pointer from a fresh repository-connected session.
-
-Agent 0 may independently continue the approved Colosseum Slice 3C probe work.
+From a fresh repository-connected session: verify every pointer in `AGENTS.md`, `README.md`, and the operating contract resolves (all six manifest files are now present), and confirm the front-end Custom GPT instructions defer to the repository definition. Agent 0 independently continues the approved Colosseum Slice 3C probe work.
 
 ## Last Updated
 
-2026-08-06T22:40:00+05:30
+2026-08-06T22:54:00+05:30
