@@ -5,7 +5,7 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 
 ## Active Work Arcs
 - Create the smallest implementation plan for the Theatre-equivalent Biblio Library tab, with focused Qt/Qt Quick tests and one compact isolated Lanista scenario.
-- Inspect Colosseum and create an implementation roadmap for the approved Local Media Launch specification.
+- Complete Slice 0 of the approved Local Media Launch roadmap: publish the repository contract map and baseline evidence before any production or reference-code changes.
 - Design and implement the narrow atomic `writePreflightReferenceBundle` bridge capability, then select one small approved Colosseum roadmap slice as the pilot.
 
 ## Durable Decisions
@@ -18,8 +18,9 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 - Preflight must not publish generated reference code directly into Colosseum.
 - The principal risk is anchoring generated mechanism above fresh evidence; safeguards include exact base commits, immutable revisions, explicit assumptions, behavioral test review, and adversarial search for a smaller design.
 - `brotherhood-systematic-debugging` remains the optional diagnostic workflow for unexpected behavior; it hands confirmed diagnoses to planning rather than patching directly.
-- Biblio Library remains a retained third tab (`Discover | Explore | Library`) and a simple Theatre-like library wall, not a new library product.
+- Biblio Library remains a retained third tab (l`Discover | Explore | Library`i) and a simple Theatre-like library wall, not a new library product.
 - Local Media Launch remains an action/session capability targeting BookReader 2, ComicReader 2, and Player 1/libmpv with device-local continuity.
+- The Local Media Launch roadmap is ordered so Slice 0 is evidence-only; the first legitimate Reference Implementation Bundle is Slice 1 (shared launch contracts) after Slice 0 resolves repository boundaries and the bundle bridge exists.
 - Handoffs are immutable.
 - Memory updates use the current GitHub file SHA.
 - When Preflight creates a durable guide or specification, publish it and update memory in the same turn with path, commit SHA, status, and exact next action.
@@ -31,6 +32,10 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 - Observed Colosseum branch: `master`
 
 ## Published Artifacts
+- `roadmaps/2026-08-06-colosseum-local-media-launch-implementation-roadmap.md`
+  - commit: `6c8ad2e828ce267cd323bc23d51226a10ae496f0`
+  - file SHA: `2c6f0550ce003ead80a585f7a629c8930940cf06`
+  - status: execution-ready for repository discovery; Slice 0 evidence and all implementation/runtime verification pending.
 - `specifications/2026-08-06-reference-implementation-bundles.md`
   - commit: `354584f693dd7966a1cf5cd4112aec4db54ecbcd`
   - file SHA: `d1b83c3b743df37a8222ec3903481bbecdc7a999`
@@ -72,7 +77,7 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 - User-visible completion requires current isolated Lanista evidence or an explicit blocker.
 
 ## Exact Next Action
-Design an execution-ready roadmap for the narrow atomic `writePreflightReferenceBundle` bridge operation. After implementation by an execution agent, select one small approved Colosseum roadmap slice as the first Reference Implementation Bundle pilot.
+Complete and publish Local Media Launch Slice 0 as a repository contract-map/research artifact pinned to Colosseum `master` commit `879e1e93e2084659c74a228bb5792b23174236e2`. It must resolve taskbar lifecycle, `SessionStore` replacement/identity semantics, backend validation seams, Reader 2 path-keyed state, CBZ/CBR ingestion, Player 1 state/subtitle contracts, platform intake, existing tests, and baseline evidence. Do not generate the Slice 1 code bundle until this map is complete and the atomic Reference Implementation Bundle bridge is available.
 
 ## Last Updated
-2026-08-06T17:56:00+05:30
+2026-08-06T18:29:00+05:30
