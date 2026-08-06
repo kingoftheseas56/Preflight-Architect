@@ -6,6 +6,7 @@ Use `kingoftheseas56/Preflight-Architect` as the durable home for planning artif
 Active arc: use `brotherhood-writing-plans` to create the smallest implementation plan for a Theatre-equivalent Biblio Library tab, with focused tests and one compact isolated Lanista scenario.
 
 ## Durable Decisions
+- `brotherhood-systematic-debugging` is the optional diagnostic workflow for unexpected behavior; it uses the current Lanista ledger and hands confirmed diagnoses to planning rather than patching directly.
 - Biblio Library is a retained third tab: `Discover | Explore | Library`.
 - Scope is a simple Theatre-like library wall, not a new library product.
 - One Biblio Collection entry becomes one card.
@@ -46,6 +47,12 @@ Active arc: use `brotherhood-writing-plans` to create the smallest implementatio
   - commit: `dd5f77db879f71b1cee27d5b1dcff7068250090a`
   - file SHA: `4891ba57516a9b9c73657c943baca2b0a72d2eeb`
   - status: current planning-ready design guide; implementation and runtime verification pending
+- `specifications/brotherhood-systematic-debugging/SKILL.md`
+  - commit: `2d491f118fda66540620239b55275699752ec0d1`
+  - status: published skill; runtime behavior not applicable
+- `specifications/brotherhood-systematic-debugging/references/systematic-debugging-pressure-tests.md`
+  - commit: `81fe124a7666d7a77d26fc29c6464b5601f520bf`
+  - status: published pressure-test reference
 
 ## Open Questions
 - Confirm exact installed Brotherhood skill root and discovery conventions.
@@ -63,4 +70,4 @@ Active arc: use `brotherhood-writing-plans` to create the smallest implementatio
 Invoke `brotherhood-writing-plans` using `roadmaps/2026-08-06-biblio-library-theatre-equivalent-guide.md` as the approved design input. Inspect Theatre's current Library implementation, `BiblioWorld.qml`, current Biblio Collection/Progress routes, shared card primitives, relevant tests, and the fresh Lanista ledger. Produce a short proportional plan with seven slices: inspection, row projection, retained page, existing actions/removal, minimal semantic names, focused tests, and compact isolated Lanista replay.
 
 ## Last Updated
-2026-08-06T16:30:00+05:30
+2026-08-06T17:07:00+05:30
