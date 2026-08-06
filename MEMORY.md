@@ -1,67 +1,66 @@
 # Preflight Architect Memory
 
 ## Current Objective
-Use `kingoftheseas56/Preflight-Architect` as the durable home for memory and artifacts. Active execution-planning arc: complete the Tankoban Library after TB-001 using Brotherhood Superpowers format, isolated Lanista fixtures, per-slice runtime proof, and Hemanth’s visual gate.
+Use `kingoftheseas56/Preflight-Architect` as the durable home for memory and planning artifacts.
 
-## Active Work Arcs
-- Tandoban Library TB-002 through TB-005 execution planning and handoff.
-- Lanista bridge capabilities, isolated fixture support, and Biblio diagnostics.
-- Brotherhood Brainstorming → Writing Plans → Executing Plans.
-- Qt Test/Qt Quick Test integration without bulk-rewriting existing harnesses.
-- Reader minimize/restore verification with the same session, work identity, and page.
+Active arc: plan a bounded Biblio Library tab using Brotherhood Writing Plans, with deterministic lower-layer tests and isolated Lanista runtime verification.
 
 ## Durable Decisions
-- TB-001 is reported complete and must be located and reconciled, not reimplemented.
-- Remaining Tandoban work executes sequentially: confirm TB-001 → BP-001 → TB-002 → TB-003 → TB-004 → TB-005 → closeout.
-- BP-001 provides tagged-session-only Collection/Progress fixture isolation unless equivalent evidence already exists.
-- Unit and QML tests do not replace running-app proof.
+- Biblio Library is a retained third tab: `Discover | Explore | Library`.
+- Scope is a simple Theatre-like library wall, not a universal media-library redesign.
+- One card represents one saved Biblio Collection work, keyed by the existing Collection entry ID / pairKey.
+- The row is a read-only projection; no new persistence entity or identity registry.
+- Exact matched book Progress owns Resume.
+- Legacy Progress matching may use bounded ordered fallback; ambiguous matches must not Resume.
+- Local ebook availability comes from Books or BookTorrents.
+- Local audiobook availability decorates the same work card.
+- Audio-only opens Details in v1; no standalone audiobook playback architecture.
+- Any local form satisfies Downloaded, with distinct Ebook and Audio badges.
+- Remove from Library removes Collection membership only, not Progress or files.
+- Existing Continue Reading and Your Collection shelves remain.
+- Register existing tests before selective migration.
+- Qt Test and Qt Quick Test do not replace running-app proof.
 - Fixed sleeps are not correctness signals.
 - Live user data is not a disposable fixture.
-- Resume uses the exact winning Progress record; Details and Remove use the original Collection entry.
-- New manga saves use resolved `seriesId`; legacy manga re-file is local, one-entry, preserves `addedAt`, and confirms canonical presence before removal.
-- No shared LibraryButton alias, bulk migration, comic title fallback, release/completion model, polling, or generic production write bridge.
+- User-visible completion requires current isolated Lanista evidence or an explicit blocker.
 - Handoffs are immutable.
 - Memory updates use the current GitHub file SHA.
-- Whenever Preflight Architect creates a guide, publish its canonical repository edition and update `MEMORY.md` in the same turn with path, commit SHA, status, and next action.
+- Whenever Preflight Architect creates a guide, publish the canonical repository edition and update `MEMORY.md` in the same turn with path, commit SHA, status, and exact next action.
 
-## Repository and Branch State
+## Repository State
 - Preflight: `kingoftheseas56/Preflight-Architect`, branch `main`.
-- Colosseum: `kingoftheseas56/Colosseum`, observed `master` at `236021a28e5080102538d3ec7d1b9373416d231a`.
-- TB-001 implementation revision: unknown; reported complete by Hemanth and not present on the inspected `master`.
+- Colosseum: `kingoftheseas56/Colosseum`, observed branch `master`.
 
 ## Published Artifacts
-- `roadmaps/2026-08-06-tankoban-library-brotherhood-superpowers-plan.md` — reviewed Brotherhood execution plan; commit `0bebc42cbf439fd1ff3ffb069bc2a7ee7657a61d`; file SHA `77d97ff9680401a35cd4c1248c43735807c0e655`.
-- `handoffs/2026-08-06-lanista-missing-bridge-capabilities-guide.md` — commit `ed3d536f8873d90ae3f9125e4d46498b9f8ab99e`.
-- `handoffs/2026-08-06-brotherhood-lanista-workflow-skills-creation-guide.md` — commit `12e62c6ab1cc3aef7ab27e9befb2509be5950c6a`.
-- `roadmaps/2026-08-06-colosseum-qt-test-quick-test-integration-and-brotherhood-skills-guide.md` — reviewed design guide; commit `f6e69e10d9718ffc056945cbcb80353ed22e63d4`; file SHA `48836852cdb3a3041df7bb7d1fc04186490cea0e`.
-
-## Rejected Approaches and Negative Knowledge
-- Do not rely on chat continuity as the only memory layer.
-- Do not reimplement TB-001 from memory.
-- Do not seed Collection/Progress by driving the daily app.
-- Do not treat current `--seed` as QSettings isolation without proof.
-- Do not create overlapping Brotherhood workflow skills.
-- Do not bulk-convert the existing test estate.
-- Do not report offscreen Qt Quick Test behavior as real Windows lifecycle behavior.
-- Do not close user-visible slices from tests or screenshots alone.
+- `handoffs/2026-08-06-lanista-missing-bridge-capabilities-guide.md`
+  - commit `ed3d536f8873d90ae3f9125e4d46498b9f8ab99e`
+- `handoffs/2026-08-06-brotherhood-lanista-workflow-skills-creation-guide.md`
+  - commit `12e62c6ab1cc3aef7ab27e9befb2509be5950c6a`
+- `roadmaps/2026-08-06-colosseum-qt-test-quick-test-integration-and-brotherhood-skills-guide.md`
+  - commit `f6e69e10d9718ffc056945cbcb80353ed22e63d4`
+  - file SHA `48836852cdb3a3041df7bb7d1fc04186490cea0e`
+  - status: reviewed design guide; implementation and runtime verification pending
+- `roadmaps/2026-08-06-biblio-library-tab-lanista-ready-design-guide.md`
+  - commit `32834b424475f2ab6bca5b728a9150a0fffec55f`
+  - file SHA `ed80358af4614def5620d851c5ffddf288ad2de7`
+  - status: planning-ready design guide; implementation and runtime verification pending
 
 ## Open Questions
-- Locate the exact TB-001 branch, commit, delivered paths, automation names, and evidence.
-- Confirm whether TB-001 already includes isolated Collection/Progress fixtures.
-- Confirm actual reader/details identity properties used by Lanista scenarios.
-- Confirm runtime resize, keyboard focus transitions, Downloads confirmation window ownership, CI, and test-runner entry points.
-- Confirm the installed Brotherhood skill root.
+- Confirm exact installed Brotherhood skill root and discovery conventions.
+- Confirm current Collection, Progress, Books, BookTorrents, Audiobooks, and routing APIs.
+- Confirm whether BookTorrents needs the proposed small read-only completed-download list.
+- Confirm deterministic isolated fixture seeding for Collection, Progress, and local availability.
+- Confirm the exact semantic properties needed to distinguish Resume, Read, and Details routes in Lanista.
 
 ## Risks and Constraints
-- Planned capabilities must not be described as implemented.
-- Test sessions must remain isolated from live user state.
+- Do not expand the Biblio Library into a universal abstraction, download registry, Progress migration, or standalone audio project.
+- Do not claim planned capabilities are implemented.
+- Do not use screenshots alone where semantic evidence is available.
+- Do not attach tests to the daily app or live user state.
 - Status must not exceed current evidence.
-- A user-visible Tandoban slice closes only as `Runtime-validated`; otherwise use Brotherhood non-closing status vocabulary.
-- Discovery that changes product or architecture decisions is `Plan contradicted`, not executor discretion.
-- Hemanth owns aesthetic approval.
 
 ## Exact Next Action
-Identify the exact branch and commit containing TB-001, inspect its Library page/module/tests and the fresh Lanista ledger, record contract differences, then execute BP-001 only unless equivalent isolated Collection/Progress fixture evidence removes that prerequisite.
+Invoke `brotherhood-writing-plans` using `roadmaps/2026-08-06-biblio-library-tab-lanista-ready-design-guide.md` as the approved design input. First inspect current Collection, Progress, Books, BookTorrents, Audiobooks, routing, tests, fixtures, and the fresh Lanista ledger. Produce a bounded implementation plan with pure row derivation, the smallest missing local read seam, retained page wiring, semantic names/properties, focused tests, isolated Lanista scenarios, and evidence artifacts.
 
 ## Last Updated
-2026-08-06T15:49:00+05:30
+2026-08-06T15:54:00+05:30
